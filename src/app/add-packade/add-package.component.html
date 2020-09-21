@@ -1,0 +1,174 @@
+
+    <div class="col-sm-12">
+        <div class="panel panel-default panel-hovered panel-stacked mb30">
+            <div class="panel-heading">Registrar paquete</div>
+            <div class="panel-body">
+
+
+                <div *ngIf="this.message ==true">
+
+                    <div class="panel-body">
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                            <div><strong>Warning:</strong> Backup all your drive.</div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+                <form (ngSubmit)="savePackage(f)" #f="ngForm"
+                 role="form" class="form-horizontal"> <!-- form horizontal acts as a row -->
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Pertenence a:</label>
+                        <div class="col-md-9">
+                            <select class="form-control" [(ngModel)]="package.name" name="name" #name="ngModel" required>
+                                <option [value]="user.nombre" >{{user.nombre}} <span> | Buzon: {{user.n_buzon}}</span></option>
+                                
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Telefono</label>
+                        <div class="col-md-4">
+                            <select class="form-control" [(ngModel)]="package.phone" name="phone" #phone="ngModel" required>
+                                <option [value]="user.phone" >{{user.phone}} </option>
+                                
+                            </select>
+                        </div>
+                
+                    </div>
+
+                    <!-- mensajes de erros -->
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                        class="alert alert-danger">
+
+                    <div *ngIf="name.errors.required">
+                        <p class="text-danger text-right xsmall">El nombre es requerido. Please, selecionar nombre del cliente.</p>
+                        
+                    </div>
+                    </div>
+
+
+                    <div *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+                        class="alert alert-danger">
+
+                    <div *ngIf="phone.errors.required">
+                        <p class="text-danger text-right xsmall">El phone es requerido. Please, selecionar nombre del cliente.</p>
+                        
+                    </div>
+                    </div>
+
+                    
+
+
+
+                    <!-- with hint -->
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">De donde viene:</label>
+                        <div class="col-md-9">
+                            <input [(ngModel)]="package.saller" name="saller"
+                            type="text" class="form-control" placeholder="Amazon, Ebay, Aliexpress, etc...">
+                        </div>
+                    </div>
+                    
+                    <!-- passowrd control -->
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Facilidad / Recoger:</label>
+                        <div class="col-md-9">
+                            <input [(ngModel)]="package.store" name="store"
+                            type="text" class="form-control" placeholder="Donde el cliente vas a recoger el paquete">
+                        </div>
+                    </div>
+
+                    <!-- Disabled control -->
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Pesos y dimensiones:</label>
+                        <div class="col-md-2">
+                            <input [(ngModel)]="package.l" name="l"
+                             type="text" class="form-control" placeholder="Largura ">
+                        </div>
+                        <div class="col-md-2">
+                            <input [(ngModel)]="package.w" name="a"
+                            type="text" class="form-control" placeholder="Ancho ">
+                        </div>
+                        <div class="col-md-2">
+                            <input [(ngModel)]="package.h" name="h"
+                            type="text" class="form-control" placeholder="Altura  ">
+                        </div>
+                        <div class="col-md-2">
+                            <input [(ngModel)]="package.p" name="p"
+                            type="text" class="form-control" placeholder="Peso ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Número de rastreo:</label>
+                        <div class="col-md-9">
+                            <input [(ngModel)]="package.track_number" name="track_number"
+                            type="text" class="form-control" placeholder="Codigo de rastreo del objeto">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Precio del paquete $:</label>
+                        <div class="col-md-9">
+                            <input currencyMask  [(ngModel)]="package.price"  name="price" #price="ngModel"  class="form-control" placeholder="valor de la factura" required>
+                        </div>
+                    </div>
+
+                    <div *ngIf="price.invalid && (price.dirty || price.touched)"
+                        class="alert alert-danger">
+
+                    <div *ngIf="price.errors.required">
+                        <p class="text-danger text-right xsmall">El precio es requerido. Please, input el precio.</p>
+                        
+                    </div>
+                    </div>
+
+                    <!-- mensajes de erros -->
+
+                    <!-- textarea control -->
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Descripción:</label>
+                        <div class="col-md-9">
+                            <textarea [(ngModel)]="package.description" name="description" #description="ngModel" required
+                             rows="2" class="form-control resize-v" placeholder="Descripción que identifica el paquete"></textarea>
+                        </div>
+                    </div>
+
+
+                    <div *ngIf="description.invalid && (description.dirty || description.touched)"
+                        class="alert alert-danger">
+
+                    <div *ngIf="description.errors.required">
+                        <p class="text-danger text-right xsmall">Descripción es requerido. Please, agregar una descripción del paquete.</p>
+                        
+                    </div>
+                    </div>
+
+                    <!-- mensajes de erros -->
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Nota:</label>
+                        <div class="col-md-9">
+                            <textarea [(ngModel)]="package.nota" name="nota"
+                            rows="5" class="form-control resize-v" placeholder="Message here"></textarea>
+                        </div>
+                    </div>
+                        
+                    
+                    
+                    
+                    <div class="clearfix right">
+                        <button class="btn btn-primary mr5 waves-effect" type="submit" [disabled]="f.invalid">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

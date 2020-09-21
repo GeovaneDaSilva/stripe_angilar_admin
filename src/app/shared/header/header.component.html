@@ -1,0 +1,106 @@
+<!-- header -->
+<header class="site-head" id="site-head">
+    <ul class="list-unstyled left-elems">
+        <!-- nav trigger/collapse -->
+        <li>
+            <a href="javascript:;" class="nav-trigger ion ion-drag"></a>
+        </li>
+        <!-- #end nav-trigger -->
+
+        <!-- Search box -->
+        <li>
+            <div class="form-search hidden-xs">
+                <form id="site-search" action="javascript:;">
+                    <input type="search" class="form-control" placeholder="Type here for search...">
+                    <button type="submit" class="ion ion-ios-search-strong"></button>
+                </form>
+            </div>
+        </li>	<!-- #end search-box -->
+
+        <!-- site-logo for mobile nav -->
+        <li>
+            <div class="site-logo visible-xs">
+                <a href="javascript:;" class="text-uppercase h3">
+                    <img src="./assets/images/logo.png" alt="">
+                </a>
+            </div>
+        </li> <!-- #end site-logo -->
+
+        <!-- fullscreen -->
+        <li class="fullscreen hidden-xs">
+            <a href="javascript:;"><i class="ion ion-qr-scanner"></i></a>
+
+        </li>	<!-- #end fullscreen -->
+
+        <!-- notification drop -->
+        <li class="notify-drop hidden-xs dropdown">
+            <a href="javascript:;" data-toggle="dropdown">
+                <i class="ion ion-speakerphone"></i>
+                <span class="badge badge-danger badge-xs circle">3</span>
+            </a>
+
+            <div class="panel panel-default dropdown-menu">
+                <div class="panel-heading">
+                    You have 3 new notifications 
+                    <a href="javascript:;" class="right btn btn-xs btn-pink mt-3">Show All</a>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        <li class="clearfix">
+                            <a href="javascript:;">
+                                <span class="ion ion-archive left bg-success"></span>
+                                <div class="desc">
+                                    <strong>App downloaded</strong>
+                                    <p class="small text-muted">1 min ago</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="clearfix">
+                            <a href="javascript:;">
+                                <span class="ion ion-alert-circled left bg-danger"></span>
+                                <div class="desc">
+                                    <strong>Application Error</strong>
+                                    <p class="small text-muted">4 hours ago</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="clearfix">
+                            <a href="javascript:;">
+                                <span class="ion ion-person left bg-info"></span>
+                                <div class="desc">
+                                    <strong>New User Registered</strong>
+                                    <p class="small text-muted">2 days ago</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </li>	<!-- #end notification drop -->
+
+    </ul>
+
+    <ul class="list-unstyled right-elems">
+        <!-- profile drop -->
+        <li class="profile-drop hidden-xs dropdown">
+            <a href="javascript:;" data-toggle="dropdown">
+                <img [src]="this.user.img | imagen"alt="admin-pic">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li><a  [routerLink]="['/perfil']"><span class="ion ion-person">&nbsp;&nbsp;</span>Perfil</a></li>
+                <li><a href="javascript:;"><span class="ion ion-settings">&nbsp;&nbsp;</span>Settings</a></li>
+                <li class="divider"></li>
+                <li><a href="javascript:;"><span class="ion ion-lock-combination">&nbsp;&nbsp;</span>Lock Screen</a></li>
+                <li><a (click)="logOut()"><span class="ion ion-power">&nbsp;&nbsp;</span>Logout _</a></li>
+            </ul>
+        </li>
+        <!-- #end profile-drop -->
+
+        <!-- sidebar contact -->
+        
+
+    </ul>
+
+</header>
+<!-- #end header -->
